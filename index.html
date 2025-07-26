@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WasteWise - Waste Management</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .hidden-card {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-red-50 text-blue-800 font-sans">
+
+  <nav class="flex items-center justify-between p-4 bg-green-700 text-white shadow-md">
+    <div class="flex items-center space-x-2">
+      <h1 class="text-2xl font-bold">DealeWithWaste</h1>
+    </div>
+    <ul class="flex space-x-4 items-center">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><a href="types.html" class="hover:underline">Types</a></li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+      <li><a href="faq.html" class="hover:underline">FAQ</a></li>
+      <li>
+        <button id="authBtn" onclick="toggleAuth()" class="bg-white text-green-700 px-3 py-1 rounded hover:bg-green-100 font-medium">
+          Sign In
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="text-center my-10 px-4">
+    <h2 class="text-3xl font-bold mb-2">Reduce. Reuse. Recycle.</h2>
+    <p class="text-gray-600 max-w-xl mx-auto">
+      Learn how to manage waste properly and protect the environment through smart disposal and recycling practices.
+    </p>
+  </section>
+
+  <div class="flex justify-center space-x-2 mb-6">
+    <button onclick="filterCards('all')" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">All</button>
+    <button onclick="filterCards('plastic')" class="bg-blue-300 hover:bg-blue-400 px-4 py-2 rounded">Plastic</button>
+    <button onclick="filterCards('organic')" class="bg-green-300 hover:bg-green-400 px-4 py-2 rounded">Organic</button>
+    <button onclick="filterCards('ewaste')" class="bg-yellow-300 hover:bg-yellow-400 px-4 py-2 rounded">E-Waste</button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 pb-10" id="wasteCards">
+    <div class="card plastic bg-white rounded shadow p-4 border">
+      <img src="https://cdn-icons-png.flaticon.com/512/355/355970.png" alt="Plastic Bottle" class="h-32 mx-auto mb-4">
+      <h3 class="text-xl font-semibold mb-1">Plastic Bottles</h3>
+      <p class="text-gray-600">Takes 450+ years to decompose. Recycle them or use alternatives like glass.</p>
+      <a href="plastic.html" class="text-sm mt-2 inline-block text-blue-700 underline hover:text-blue-900">Learn More</a>
+      <span class="text-sm text-blue-600 font-medium block mt-2">Plastic</span>
+    </div>
+
+    <div class="card organic bg-white rounded shadow p-4 border">
+      <img src="https://cdn-icons-png.flaticon.com/512/7667/7667298.png" alt="Organic Waste" class="h-32 mx-auto mb-4">
+      <h3 class="text-xl font-semibold mb-1">Kitchen Waste</h3>
+      <p class="text-gray-600">Can be composted at home. Great for garden soil enrichment.</p>
+      <a href="organic.html" class="text-sm mt-2 inline-block text-green-700 underline hover:text-green-900">Learn More</a>
+      <span class="text-sm text-green-600 font-medium block mt-2">Organic</span>
+    </div>
+
+    <div class="card ewaste bg-white rounded shadow p-4 border">
+      <img src="https://cdn-icons-png.flaticon.com/512/1093/1093613.png" alt="E-Waste" class="h-32 mx-auto mb-4">
+      <h3 class="text-xl font-semibold mb-1">Old Smartphones</h3>
+      <p class="text-gray-600">Contain harmful materials. Always dispose through e-waste centers.</p>
+      <a href="ewaste.html" class="text-sm mt-2 inline-block text-yellow-700 underline hover:text-yellow-900">Learn More</a>
+      <span class="text-sm text-yellow-600 font-medium block mt-2">E-Waste</span>
+    </div>
+  </div>
+
+  <footer class="text-center text-sm text-gray-500 py-4 border-t">
+    Working towards a sustainable future through effective waste management and environmental stewardship.
+  </footer>
+
+  <script>
+    function filterCards(type) {
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        if (type === 'all' || card.classList.contains(type)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleAuth() {
+      const btn = document.getElementById("authBtn");
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      localStorage.setItem("loggedIn", !isLoggedIn);
+      btn.textContent = isLoggedIn ? "Sign In" : "Log Out";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("authBtn");
+      btn.textContent = localStorage.getItem("loggedIn") === "true" ? "Log Out" : "Sign In";
+    });
+  </script>
+
+</body>
+</html>

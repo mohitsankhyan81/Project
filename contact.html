@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - WasteWise</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-blue-50 text-gray-800 font-sans">
+
+  <nav class="bg-green-700 text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Contact WasteWise</h1>
+    <a href="index.html" class="hover:underline">⬅ Back to Home</a>
+  </nav>
+
+  <section class="max-w-xl mx-auto p-6 mt-10 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Get in Touch</h2>
+    <form>
+      <label class="block mb-2 font-medium">Your Name</label>
+      <input type="text" class="w-full p-2 mb-4 border rounded" placeholder="Enter your name" required />
+
+      <label class="block mb-2 font-medium">Email</label>
+      <input type="email" class="w-full p-2 mb-4 border rounded" placeholder="you@example.com" required />
+
+      <label class="block mb-2 font-medium">Message</label>
+      <textarea class="w-full p-2 mb-4 border rounded" rows="5" placeholder="Your message here..." required></textarea>
+
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        Send Message
+      </button>
+    </form>
+  </section>
+
+</body>
+</html>
